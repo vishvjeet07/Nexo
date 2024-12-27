@@ -8,7 +8,7 @@ const router = express.Router();
 router.use(express.urlencoded({extended: true}));
 router.get("/",function(req,res){
     let error = req.flash("error");
-    res.render('index',{error, loggedin:false });
+    res.render('userlogin',{error, loggedin:false });
 })
 
 router.get('/shop', isLoggedin, async function(req, res) {

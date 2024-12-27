@@ -4,6 +4,7 @@ const ownersRoute = require('./routes/ownersRouter');
 const usersRoute = require('./routes/usersRouter');
 const productsRoute = require('./routes/productsRouter');
 const indexRoute = require('./routes/index');
+const registerRoute = require('./routes/register');
 const expressSession = require('express-session');
 const flash = require("connect-flash");
 
@@ -27,6 +28,7 @@ app.use(express.static(path.join(__dirname,'public')));
 app.set("view engine","ejs");
 
 app.use("/",indexRoute)
+app.use('/registerpage',registerRoute)
 app.use("/owners",ownersRoute)
 app.use("/users",usersRoute)
 app.use("/products",productsRoute)
