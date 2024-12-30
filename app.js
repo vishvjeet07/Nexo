@@ -7,6 +7,7 @@ const indexRoute = require('./routes/index');
 const registerRoute = require('./routes/register');
 const expressSession = require('express-session');
 const flash = require("connect-flash");
+const MongoStore = require('connect-mongo');
 
 require('dotenv').config();
 
@@ -20,6 +21,7 @@ app.use(express.urlencoded({extended: true}));
 app.use(cookieParser());
 app.use(expressSession({
     secret: process.env.EXPRESS_SESSION_SECRET, // Replace with your secret key
+    store: MongoStore.create({ mongoUrl: 'mongodb+srv://vishverse07:b60QvQjeKufbHwwJ@cluster0.wrha7.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0' }),
     resave: false,             // Prevent session resaving if not modified
     saveUninitialized: false,  // Don't save empty sessions
   }));
