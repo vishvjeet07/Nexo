@@ -3,7 +3,7 @@ const config = require('config');
 
 const dbgr = require('debug')("development:mongoose");
 
-mongoose.connect(`${config.get("mongodb+srv://vishverse07:mVTugjpzlzLwqSJT@nexo.qgiwp.mongodb.net/?retryWrites=true&w=majority&appName=Nexo")}/sneakers`)
+mongoose.connect(`${config.get("MONGODB_URI")}/sneakers`)
 .then(function(){
 })
 .catch(function(err){
