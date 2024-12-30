@@ -26,6 +26,7 @@ app.use(expressSession({
 app.use(flash());
 app.use(express.static(path.join(__dirname,'public')));
 app.set("view engine","ejs");
+app.set('views', path.join(__dirname, 'views'));
 
 app.use("/",indexRoute)
 app.use('/registerpage',registerRoute)
@@ -33,4 +34,4 @@ app.use("/owners",ownersRoute)
 app.use("/users",usersRoute)
 app.use("/products",productsRoute)
 
-app.listen(3000);
+module.exports = app;
