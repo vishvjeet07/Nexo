@@ -19,14 +19,13 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(cookieParser());
 app.use(expressSession({
-    resave:false,
-    saveUninitialized:false,
-    secret: process.env.EXPRESS_SESSION_SECRET,
-}));
+    secret: process.env.EXPRESS_SESSION_SECRET, // Replace with your secret key
+    resave: false,             // Prevent session resaving if not modified
+    saveUninitialized: false,  // Don't save empty sessions
+  }));
 app.use(flash());
 app.use(express.static(path.join(__dirname,'public')));
 app.set("view engine","ejs");
-app.set('views', path.join(__dirname, 'views'));
 
 app.use((err, req, res, next) => {
     console.error(err.stack);
