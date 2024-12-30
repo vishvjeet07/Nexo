@@ -28,6 +28,11 @@ app.use(express.static(path.join(__dirname,'public')));
 app.set("view engine","ejs");
 app.set('views', path.join(__dirname, 'views'));
 
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).send('Kuchh To Galat Hai!');
+});
+
 app.use("/",indexRoute)
 app.use('/registerpage',registerRoute)
 app.use("/owners",ownersRoute)
